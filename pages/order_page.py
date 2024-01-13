@@ -106,11 +106,11 @@ class OrderPage(Base):
         print('Enter code.')
 
     def enter_email(self):
-        self.get_email_field().send_keys('***')
+        self.get_email_field().send_keys('******')
         print('Enter email.')
 
     def enter_pass(self):
-        self.get_pass_field().send_keys('***')
+        self.get_pass_field().send_keys('******')
         print('Enter password.')
         time.sleep(10)
 
