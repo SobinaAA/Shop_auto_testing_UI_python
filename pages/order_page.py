@@ -126,9 +126,9 @@ class OrderPage(Base):
     def enter_with_email(self):
         self.click_email_button()
         time.sleep(5)
-        self.driver.find_element(By.XPATH, '//input[@name="root_login"]').send_keys('makkuropip@gmail.com') #Too simple method, but works
+        self.driver.find_element(By.XPATH, '//input[@name="root_login"]').send_keys('******') #Too simple method, but works
         time.sleep(5)
-        self.driver.find_element(By.XPATH, '//input[@name="root_password"]').send_keys('gAmruv-7fyrfa-tugber') #Too simple method, but works
+        self.driver.find_element(By.XPATH, '//input[@name="root_password"]').send_keys('******') #Too simple method, but works
         time.sleep(5)
         self.click_enter_button()
 
