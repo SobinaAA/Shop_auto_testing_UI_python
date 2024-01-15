@@ -8,11 +8,6 @@ from base.base import Base
 
 
 class CatDryFeedPage(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     a_view_all = '//div[@class="categories-wrapper"]/ul/li[1]/div[1]/a[1]'
 
@@ -39,5 +34,3 @@ class CatDryFeedPage(Base):
             self.click_a_view_all()
         time.sleep(5)
         self.assert_url('https://www.petshop.ru/catalog/cats/syxkor/all/')
-
-

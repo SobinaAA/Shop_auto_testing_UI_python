@@ -7,11 +7,6 @@ from base.base import Base
 
 
 class CartPage(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     make_order_button = '//div[@class="FullCart_order_btn_wrap__gHX9x"]/button[1]'
     price = '(//span[@data-testid="Price__val"])[4]'

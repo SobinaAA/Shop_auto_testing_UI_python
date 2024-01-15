@@ -8,11 +8,6 @@ from base.base import Base
 
 
 class OrderPage(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     phone_field = '//input[@name="root_phone"]'
     button_msg = '//button[@type="submit"]'
@@ -22,8 +17,8 @@ class OrderPage(Base):
     final_button = '(//span[@class="Button_button_content__Jhwto"])[2]'
     email_button = '//div[@class="OrderAuthorization_link_wrapper__c9sQk"]/button'
     email_field = '//input[@name="root_login"]'
-    email_label = '(//label[@data-testid="TextInput__label"])[4]' #проба пера
-    pass_label = '(//label[@data-testid="TextInput__label"])[5]'#проба пера
+    email_label = '(//label[@data-testid="TextInput__label"])[4]'  # проба пера
+    pass_label = '(//label[@data-testid="TextInput__label"])[5]'  # проба пера
     pass_field = '//input[@name="root_password"]'
     enter_button = '(//button[@type="submit"])[2]'
 
@@ -126,9 +121,11 @@ class OrderPage(Base):
     def enter_with_email(self):
         self.click_email_button()
         time.sleep(5)
-        self.driver.find_element(By.XPATH, '//input[@name="root_login"]').send_keys('******') #Too simple method, but works
+        self.driver.find_element(By.XPATH, '//input[@name="root_login"]').send_keys(
+            '******')  # Too simple method, but works
         time.sleep(5)
-        self.driver.find_element(By.XPATH, '//input[@name="root_password"]').send_keys('******') #Too simple method, but works
+        self.driver.find_element(By.XPATH, '//input[@name="root_password"]').send_keys(
+            '******')  # Too simple method, but works
         time.sleep(5)
         self.click_enter_button()
 
@@ -139,12 +136,6 @@ class OrderPage(Base):
         actions.move_to_element(self.get_button_payment_method()).click().perform()
         self.click_button_payment_method()
         self.assert_word(self.get_final_button(), 'Оформить заказ')
-        #self.click_final_button() # We will not make the order
-        print('We found an order button on the page, it is clickable. The text from it was checked. We will not make the order!')
-
-
-
-
-
-
-
+        # self.click_final_button() # We will not make the order
+        print(
+            'We found an order button on the page, it is clickable. The text from it was checked. We will not make the order!')

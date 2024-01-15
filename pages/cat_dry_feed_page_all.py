@@ -6,12 +6,8 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from base.base import Base
 
+
 class CatDryFeedPageAll(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     price_filter = '//div[@class="CatalogFiltersBlock_content__5SFm9"]/div[6]'
     weight_filter = '//div[@class="CatalogFiltersBlock_content__5SFm9"]/div[7]'
@@ -54,7 +50,6 @@ class CatDryFeedPageAll(Base):
 
     def get_cart_link(self):
         return WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable((By.XPATH, self.cart_link)))
-
 
     # Actions
     def click_cart_link(self):
@@ -159,8 +154,8 @@ class CatDryFeedPageAll(Base):
         values = [108, 12644, 0.2, 18]
         values[0] = float(self.get_min_price_slider().get_attribute('aria-valuenow'))
         values[1] = float(self.get_max_price_slider().get_attribute('aria-valuenow'))
-        values[2] = float(self.get_min_weight_slider().get_attribute('aria-valuenow'))/1000
-        values[3] = float(self.get_max_weight_slider().get_attribute('aria-valuenow'))/1000
+        values[2] = float(self.get_min_weight_slider().get_attribute('aria-valuenow')) / 1000
+        values[3] = float(self.get_max_weight_slider().get_attribute('aria-valuenow')) / 1000
         return values
 
     def go_to_cart(self):

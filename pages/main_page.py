@@ -8,10 +8,6 @@ from base.base import Base
 class MainPage(Base):
     url = 'https://www.petshop.ru/'
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
 
     dry_cat_category = '(//ul[@class="left-list left-list_column-three"])[2]/li[2]/a'
