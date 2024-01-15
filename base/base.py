@@ -31,20 +31,17 @@ class Base():
         print('Current url = ' + get_url)
 
     """Method assert word"""
-
     def assert_word(self, word, result):
         value_word = word.text
         assert value_word == result
         print("Good value word!")
 
     """Method screenshot"""
-
     def get_screenshot(self):
         now_date = datetime.datetime.utcnow().strftime("%Y-%m-%d_%H-%M-%S")
         self.driver.save_screenshot('../screen/screenshot_' + str(now_date) + '.png')
 
     """Method assert url"""
-
     def assert_url(self, result):
         get_url = self.driver.current_url
         assert get_url == result

@@ -3,7 +3,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
 from base.base import Base
 
 
@@ -137,5 +136,4 @@ class OrderPage(Base):
         self.click_button_payment_method()
         self.assert_word(self.get_final_button(), 'Оформить заказ')
         # self.click_final_button() # We will not make the order
-        print(
-            'We found an order button on the page, it is clickable. The text from it was checked. We will not make the order!')
+        print('We found an order button on the page, it is clickable. The text from it was checked. We will not make the order!')

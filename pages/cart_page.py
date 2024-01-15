@@ -2,7 +2,6 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
 from base.base import Base
 
 
@@ -30,7 +29,7 @@ class CartPage(Base):
     # Methods
     def make_order(self):
         time.sleep(5)
-        self.get_screenshot()  # чтобы потом проверить, купили мы правильный корм
+        self.get_screenshot()  # чтобы потом проверить, купили ли мы правильный корм
         self.get_current_url()
         time.sleep(4)
         self.click_make_order_button()

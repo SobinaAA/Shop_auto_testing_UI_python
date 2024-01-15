@@ -9,7 +9,6 @@ class MainPage(Base):
     url = 'https://www.petshop.ru/'
 
     # Locators
-
     dry_cat_category = '(//ul[@class="left-list left-list_column-three"])[2]/li[2]/a'
     button_change_location = '//button[@class="City_city__ykrSq undefined action-header-city"]'
     ekb_city = '(//span[text()="Екатеринбург"])[2]'

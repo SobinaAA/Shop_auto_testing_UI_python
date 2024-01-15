@@ -43,3 +43,4 @@ def test_buy_feed():
     final.enter_with_email() #ызвали метод автоиизации по email
     final.finish_order() #ызвали метод завершения заказа (дата, метод оплаты, клик на "Заказать")
     print('Test is finished!')
+
