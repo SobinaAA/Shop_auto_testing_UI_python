@@ -34,7 +34,7 @@ class CartPage(Base):
         time.sleep(4)
         self.click_make_order_button()
 
-    def control_parameters(self, values): #Проверка соответствия параметров корма тем самым значениям фильтров со страницы с фильтрами
+    def control_parameters(self, values): #Проверка соответствия параметров корма  значениям фильтров со страницы с фильтрами
         time.sleep(5)
         assert values[1] > int(self.get_price().text.replace(' ', '')) > values[0]
         print('Price is correct for filter.')
