@@ -117,7 +117,7 @@ class OrderPage(Base):
     #     time.sleep(5)
     #     self.click_enter_button()
 
-    def enter_with_email(self):
+    def enter_with_email(self): #Вход с email, не работает так красиво, как приведенный выше
         self.click_email_button()
         time.sleep(5)
         self.driver.find_element(By.XPATH, '//input[@name="root_login"]').send_keys(
@@ -128,12 +128,12 @@ class OrderPage(Base):
         time.sleep(5)
         self.click_enter_button()
 
-    def finish_order(self):
+    def finish_order(self): #Выбираем дату доставки и метод оплаты, нажимаем "Оформить заказ"
         self.click_date_button()
         time.sleep(10)
         actions = ActionChains(self.driver)
         actions.move_to_element(self.get_button_payment_method()).click().perform()
         self.click_button_payment_method()
-        self.assert_word(self.get_final_button(), 'Оформить заказ')
+        self.assert_word(self.get_final_button(), 'Оформить заказ') #Проверяем, чтобы на кнопке было написано, что нам надо
         # self.click_final_button() # We will not make the order
         print('We found an order button on the page, it is clickable. The text from it was checked. We will not make the order!')

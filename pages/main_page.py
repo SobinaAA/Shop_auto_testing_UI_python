@@ -41,7 +41,7 @@ class MainPage(Base):
         print('Click to close widget.')
 
     # Methods
-    def change_location(self):
+    def change_location(self): #Кликаем по окну для смены локации на Екб
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.close_left_up_widget()
@@ -50,7 +50,7 @@ class MainPage(Base):
         time.sleep(3)
         self.close_cookies()
 
-    def select_category_dry_cat(self):
+    def select_category_dry_cat(self): #ВЫбор категории сухого корма
         self.close_ad_up_bonuses()
         time.sleep(5)
         self.close_cookies()

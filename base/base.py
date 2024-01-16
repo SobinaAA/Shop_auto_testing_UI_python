@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
 
-class Base():
+class Base(): #Здесь все, что может пригодиться на других страницах
     def __init__(self, driver):
         self.driver = driver
 
@@ -25,7 +25,6 @@ class Base():
 
     # Methods
     """Method get current url"""
-
     def get_current_url(self):
         get_url = self.driver.current_url
         print('Current url = ' + get_url)
@@ -47,27 +46,27 @@ class Base():
         assert get_url == result
         print("Good url!")
 
-    def close_cookies(self):
+    def close_cookies(self): #Закрывает уведомление про куки
         try:
             element = self.driver.find_element(By.XPATH, self.button_cookies)
             element.click()
         except (NoSuchElementException, ElementNotInteractableException) as exception:
             print('Cant find cookies widget.')
 
-    def close_chat(self):
+    def close_chat(self): #Закрывает окно чата
         try:
             element = self.driver.find_element(By.XPATH, self.button_close_chat)
             element.click()
         except (NoSuchElementException, ElementNotInteractableException) as exception:
             print('Cant find chat widget.')
 
-    def close_left_up_widget(self):
+    def close_left_up_widget(self): #Закрывает рекламное окно сверху про скидки
         try:
             self.get_button_close_left_widget().click()
         except (NoSuchElementException, ElementNotInteractableException) as exception:
             print('Cant find annoying widget with ad (left-up corner).')
 
-    def close_ad_up_bonuses(self):
+    def close_ad_up_bonuses(self): #Закрывает рекламное окно слева сверху про бонусы
         try:
             iframe = self.driver.find_element_by_xpath(self.iframe_up_path)
             self.driver.switch_to.frame(iframe)
@@ -77,7 +76,7 @@ class Base():
         except (NoSuchElementException, ElementNotInteractableException) as exception:
             print('Cant find annoying widget with ad (up).')
 
-    def close_ad_down_bonuses(self):
+    def close_ad_down_bonuses(self): #Закрывает рекламное окно слева снизу про 500 бонусов за подписку
         try:
             iframe = self.driver.find_element_by_xpath(self.iframe_path)
             self.driver.switch_to.frame(iframe)
@@ -87,7 +86,7 @@ class Base():
         except (NoSuchElementException, ElementNotInteractableException) as exception:
             print('Cant find annoying widget with ad (left-down corner).')
 
-    def close_all_window_widget(self): #закрывает два типа виджета на все окно
+    def close_all_window_widget(self): #закрывает два типа виджета на все окно (рассрочка и летающие коты)
         try:
             iframe = self.driver.find_element_by_xpath(self.iframe_all_window)
             self.driver.switch_to.frame(iframe)

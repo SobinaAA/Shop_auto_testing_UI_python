@@ -25,7 +25,7 @@ def test_buy_feed():
 
     cat_dry_filter = CatDryFeedPageAll(driver) #создали объект класса страницы с фильтрами
     cat_dry_filter.appoint_price(115, - 15) #вызвали метод изменения хначений фильтра стоимости
-    time.sleep(20)
+    time.sleep(10)
     cat_dry_filter.appoint_weight(70, - 50) #вызвали метод изменения хначений фильтра веса
     time.sleep(10)
     cat_dry_filter.appoint_age() #вызвали метод изменения возрастной категории

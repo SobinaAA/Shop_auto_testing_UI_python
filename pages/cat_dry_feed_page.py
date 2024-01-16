@@ -20,16 +20,16 @@ class CatDryFeedPage(Base):
         print('Click button to view all products in category.')
 
     # Methods
-    def choose_feed(self):
+    def choose_feed(self): #Попытка кликнуть на кнопку для просмотра всех товаров категории
         self.close_all_window_widget()
         self.close_ad_down_bonuses()
         try:
             self.click_a_view_all()
-        except TimeoutException as exception:
+        except TimeoutException as exception: #Если возникают какие-то проблемы, обновление страницы и закрытие баннеров
             self.driver.refresh()
             time.sleep(5)
             self.close_all_window_widget()
             self.close_ad_down_bonuses()
             self.click_a_view_all()
         time.sleep(5)
-        self.assert_url('https://www.petshop.ru/catalog/cats/syxkor/all/')
+        self.assert_url('https://www.petshop.ru/catalog/cats/syxkor/all/') #Проверяем, туда ли перешли по ссылке

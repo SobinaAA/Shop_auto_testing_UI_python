@@ -76,29 +76,29 @@ class CatDryFeedPageAll(Base):
         self.get_my_item_cart().click()
         print('Click Royal Canin.')
 
-    def increase_min_price(self, value_min):
+    def increase_min_price(self, value_min): #передвижение левого ползунка цены вправо
         self.close_ad_down_bonuses()
         action_0 = ActionChains(self.driver)
         action_0.click_and_hold(self.get_min_price_slider()).move_by_offset(value_min,
                                                                             0).release().perform()  # зажали и тянем, двигаем,
 
-    def decrease_max_price(self, value_max):
+    def decrease_max_price(self, value_max): #передвижение правого ползунка цены влево
         action_1 = ActionChains(self.driver)
         action_1.click_and_hold(self.get_max_price_slider()).move_by_offset(value_max,
                                                                             0).release().perform()  # зажали и тянем, двигаем,
 
-    def increase_min_weight(self, value_min):
+    def increase_min_weight(self, value_min): #передвижение левого ползунка веса вправо
         action_0 = ActionChains(self.driver)
         action_0.click_and_hold(self.get_min_weight_slider()).move_by_offset(value_min,
                                                                              0).release().perform()  # зажали и тянем, двигаем,
 
-    def decrease_max_weight(self, value_max):
+    def decrease_max_weight(self, value_max): #передвижение правого ползунка веса влево
         action_1 = ActionChains(self.driver)
         action_1.click_and_hold(self.get_max_weight_slider()).move_by_offset(value_max,
                                                                              0).release().perform()  # зажали и тянем, двигаем,
 
     # Methods
-    def appoint_price(self, value_min, value_max):
+    def appoint_price(self, value_min, value_max): #Выбор в левом меню фильтра цены, передвижение двух ползунков навстречу друг другу
         self.close_all_window_widget()
         self.close_ad_down_bonuses()
         try:
@@ -114,7 +114,7 @@ class CatDryFeedPageAll(Base):
         time.sleep(10)
         self.decrease_max_price(value_max)
 
-    def appoint_weight(self, value_min, value_max):
+    def appoint_weight(self, value_min, value_max): #Выбор в левом меню фильтра веса, передвижение двух ползунков навстречу друг другу
         try:
             self.click_weight_filter()
         except TimeoutException as exception:
@@ -127,7 +127,7 @@ class CatDryFeedPageAll(Base):
         self.decrease_max_weight(value_max)
         time.sleep(10)
 
-    def appoint_age(self):
+    def appoint_age(self): #выбор в левом меню фильтра возраст, значение "Для взрослых"
         try:
             self.click_age_filter()
         except (TimeoutException, ElementClickInterceptedException) as exception:
@@ -139,7 +139,7 @@ class CatDryFeedPageAll(Base):
         time.sleep(10)
         self.click_adult_value_filter()
 
-    def choose_feed(self):
+    def choose_feed(self): #Попытка кликнуть по первому в списке корму
         try:
             self.click_my_item_cart()
         except (TimeoutException, ElementClickInterceptedException) as exception:
@@ -150,13 +150,13 @@ class CatDryFeedPageAll(Base):
             self.click_my_item_cart()
         time.sleep(10)
 
-    def to_write_filters_values(self):
-        values = [108, 12644, 0.2, 18]
-        values[0] = float(self.get_min_price_slider().get_attribute('aria-valuenow'))
-        values[1] = float(self.get_max_price_slider().get_attribute('aria-valuenow'))
-        values[2] = float(self.get_min_weight_slider().get_attribute('aria-valuenow')) / 1000
-        values[3] = float(self.get_max_weight_slider().get_attribute('aria-valuenow')) / 1000
+    def to_write_filters_values(self): #функция, которая помогает в самом тесте получить значения фильтров веса и цены
+        values = [108, 12644, 0.2, 18] #значения фильтров по умолчанию, цена 108-12644 руб, вес 0,2-18 кг
+        values[0] = float(self.get_min_price_slider().get_attribute('aria-valuenow')) #запоминаем значение фильтра в руб
+        values[1] = float(self.get_max_price_slider().get_attribute('aria-valuenow')) #запоминаем значение фильтра в руб
+        values[2] = float(self.get_min_weight_slider().get_attribute('aria-valuenow')) / 1000 #запоминаем значение фильтра в кг
+        values[3] = float(self.get_max_weight_slider().get_attribute('aria-valuenow')) / 1000#запоминаем значение фильтра в кг
         return values
 
-    def go_to_cart(self):
+    def go_to_cart(self): #Нажать на кнопку "Корзина"
         self.click_cart_link()

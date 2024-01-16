@@ -27,14 +27,14 @@ class CartPage(Base):
         print('Click button to make order.')
 
     # Methods
-    def make_order(self):
+    def make_order(self): #Переход на страницу заказа
         time.sleep(5)
         self.get_screenshot()  # чтобы потом проверить, купили ли мы правильный корм
         self.get_current_url()
         time.sleep(4)
         self.click_make_order_button()
 
-    def control_parameters(self, values):
+    def control_parameters(self, values): #Проверка соответствия параметров корма тем самым значениям фильтров со страницы с фильтрами
         time.sleep(5)
         assert values[1] > int(self.get_price().text.replace(' ', '')) > values[0]
         print('Price is correct for filter.')
